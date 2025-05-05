@@ -1,6 +1,6 @@
 [versions]
-agp = "8.9.2"
-kotlin = "2.0.21"
+agp = "8.8.2"
+kotlin = "2.1.10"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -9,6 +9,15 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.10.1"
 constraintlayout = "2.2.1"
+coroutinesCore = "1.10.1"
+coroutinesAndroid = "1.10.1"
+lifecycleProcess = "2.8.7"
+lifecycleViewmodel = "2.8.7"
+roomKtx = "2.7.0"
+koinAndroid = "4.0.0"
+ktorVersion = "3.0.2"
+kspVersion = "2.1.10-1.0.30"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -20,7 +29,42 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
+sdp-android = { module = "com.intuit.sdp:sdp-android", version = "1.1.1" }
+ssp-android = { module = "com.intuit.ssp:ssp-android", version = "1.1.1" }
+bumb-glide = { group = "com.github.bumptech.glide", name = "glide", version = "5.0.0-rc01" }
+lottie = { module = "com.airbnb.android:lottie", version = "6.6.2" }
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesCore" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutinesAndroid" }
+
+androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "lifecycleProcess" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleProcess" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodel" }
+
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomKtx" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
+
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.7.3" }
+
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+
+ktorCore = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+ktorOkhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorVersion" }
+ktorNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
+ktorSerialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
+
+
+[bundles]
+ktor = [
+    "ktorOkhttp",
+    "ktorCore",
+    "ktorSerialization",
+    "ktorNegotiation"
+]
+
+
 [plugins]
+kspPlugin = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 

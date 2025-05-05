@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    alias(libs.plugins.kspPlugin)
+    kotlin("plugin.serialization") version "2.0.20"
 }
 
 android {
@@ -33,6 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -45,4 +52,38 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    // responsive units
+    implementation(libs.ssp.android)
+    implementation(libs.sdp.android)
+
+    // glide image
+    implementation(libs.bumb.glide)
+
+    // lottie animation
+    implementation(libs.lottie)
+
+    // coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // view model - lifecycle
+    implementation(libs.androidx.lifecycle.process)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    // Room Database
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    // serialization
+    implementation(libs.kotlinx.serialization)
+
+    // ktor api-impl
+    implementation(libs.bundles.ktor)
+
+    // koin di
+    implementation(libs.koin.android)
+
 }
